@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:facebook_task/constants.dart';
 import 'package:facebook_task/pages/login_page.dart';
 import 'package:facebook_task/widgets/custom_text_feild.dart';
 import 'package:facebook_task/widgets/custum_button.dart';
@@ -25,7 +26,7 @@ class _SignupPageState extends State<SignupPage> {
     return ModalProgressHUD(
       inAsyncCall: isLoaded,
       child: Scaffold(
-        backgroundColor: const Color(0xff284461),
+        backgroundColor: kPrimaryColor,
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Form(
@@ -58,7 +59,7 @@ class _SignupPageState extends State<SignupPage> {
                   },
                 ),
                 const SizedBox(height: 10),
-                CustomTextFeild(
+                CustomPasswordTextFeild(
                   text: 'Password',
                   onChanged: (value) {
                     password = value;

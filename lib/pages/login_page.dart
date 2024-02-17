@@ -1,6 +1,7 @@
 import 'dart:developer';
 
-import 'package:facebook_task/pages/home_page.dart';
+import 'package:facebook_task/constants.dart';
+import 'package:facebook_task/pages/caht_page.dart';
 import 'package:facebook_task/pages/signup_pages.dart';
 import 'package:facebook_task/widgets/custom_text_feild.dart';
 import 'package:facebook_task/widgets/custum_button.dart';
@@ -18,9 +19,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   late String email, password;
-
-  bool isLoaded = false;
-
+   bool isLoaded = false;
   GlobalKey<FormState> formKey = GlobalKey();
 
   @override
@@ -28,7 +27,7 @@ class _LoginPageState extends State<LoginPage> {
     return ModalProgressHUD(
       inAsyncCall: isLoaded,
       child: Scaffold(
-        backgroundColor: const Color(0xff284461),
+        backgroundColor: kPrimaryColor,
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Form(
@@ -61,7 +60,7 @@ class _LoginPageState extends State<LoginPage> {
                   },
                 ),
                 const SizedBox(height: 10),
-                CustomTextFeild(
+                CustomPasswordTextFeild(
                   text: 'Password',
                   onChanged: (value) {
                     password = value;
@@ -91,7 +90,8 @@ class _LoginPageState extends State<LoginPage> {
                         );
                         log('success Login => ${credential.user!.email}');
                         // ignore: use_build_context_synchronously
-                        Navigator.pushReplacementNamed(context, HomePage.id);
+                        Navigator.pushReplacementNamed(context, ChatPage.id,
+                            arguments: email);
                       } on FirebaseAuthException catch (e) {
                         setState(() {
                           isLoaded = false;
