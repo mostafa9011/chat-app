@@ -1,5 +1,5 @@
 import 'package:facebook_task/firebase_options.dart';
-import 'package:facebook_task/pages/home_page.dart';
+import 'package:facebook_task/pages/caht_page.dart';
 import 'package:facebook_task/pages/login_page.dart';
 import 'package:facebook_task/pages/signup_pages.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -23,7 +23,7 @@ class ChatApp extends StatelessWidget {
       routes: {
         LoginPage.id: (context) => const LoginPage(),
         SignupPage.id: (context) => const SignupPage(),
-        HomePage.id: (context) => const HomePage(),
+        ChatPage.id: (context) =>  ChatPage.ChatPage(),
       },
       initialRoute: LoginPage.id,
     );
