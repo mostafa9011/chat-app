@@ -41,7 +41,7 @@ class FrendBubbleMessage extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         margin: const EdgeInsets.only(left: 10, top: 10, right: 10),
         decoration: const BoxDecoration(
-          color: Color(0xff006389),
+          color: Colors.blue,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(16),
             topRight: Radius.circular(16),

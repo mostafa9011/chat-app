@@ -13,7 +13,11 @@ class CustomTextFeild extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       validator: (value) {
-        if (value == '') return 'field required !';
+        if (value?.isEmpty ?? true) {
+          return 'field required !';
+        } else {
+          return null;
+        }
       },
       onChanged: onChanged,
       decoration: InputDecoration(
@@ -31,7 +35,7 @@ class CustomTextFeild extends StatelessWidget {
 }
 
 class CustomPasswordTextFeild extends StatefulWidget {
-  CustomPasswordTextFeild({
+  const CustomPasswordTextFeild({
     super.key,
     required this.text,
     required this.onChanged,
@@ -52,7 +56,11 @@ class _CustomPasswordTextFeildState extends State<CustomPasswordTextFeild> {
     return TextFormField(
       obscureText: obscureText,
       validator: (value) {
-        if (value == '') return 'field required !';
+        if (value?.isEmpty ?? true) {
+          return 'field required !';
+        } else {
+          return null;
+        }
       },
       onChanged: widget.onChanged,
       decoration: InputDecoration(
@@ -71,7 +79,10 @@ class _CustomPasswordTextFeildState extends State<CustomPasswordTextFeild> {
                     obscureText = false;
                   });
                 },
-                icon: const Icon(Icons.visibility_off,color: Colors.white,),
+                icon: const Icon(
+                  Icons.visibility_off,
+                  color: Colors.white,
+                ),
               )
             : IconButton(
                 onPressed: () {
@@ -79,7 +90,10 @@ class _CustomPasswordTextFeildState extends State<CustomPasswordTextFeild> {
                     obscureText = true;
                   });
                 },
-                icon: const Icon(Icons.visibility,color: Colors.white,),
+                icon: const Icon(
+                  Icons.visibility,
+                  color: Colors.white,
+                ),
               ),
       ),
     );
